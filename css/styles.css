@@ -1,0 +1,23 @@
+:root{
+    --verde: #0013a1;
+    --blanco: #fff;
+    --celeste: #006aff;
+    --oscuro: #000;
+    --titulos: 'Arima Madurai', cursive;
+    --parrafos: 'Mulish', sans-serif;
+    
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+*,*::after, *::before{
+    box-sizing: inherit;
+}
+
