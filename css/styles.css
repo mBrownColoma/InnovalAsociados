@@ -1,10 +1,11 @@
 :root{
-    --verde: #0013a1;
+    --azul: #0013a1;
     --blanco: #fff;
     --celeste: #006aff;
+    --gris: rgb(182, 182, 182);
     --oscuro: #000;
-    --titulos: 'Arima Madurai', cursive;
-    --parrafos: 'Mulish', sans-serif;
+    --titulos: 'Inter Tight', cursive;
+    --parrafos: 'Lato', sans-serif;
     
 }
 
@@ -15,9 +16,121 @@ html{
 
 body{
     font-size: 1.6rem;
+    overflow-x: hidden;
 }
 
 *,*::after, *::before{
     box-sizing: inherit;
 }
+/* globales */
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 95%;
+}   
+h1, h2{
+    font-family: var(--titulos);
+}
+h3, p, a{
+    font-family: var(--parrafos);
+}
+.gris{
+    color: var(--gris);
+}
+.ocultar{
+    display: none;
+}
+.btn-cerrar{
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--blanco);
+    position: absolute;
+    transition: color .3s ease-in-out;
+    top: 1rem;
+    right: 5rem;
+    user-select: none;
+}
+.pantalla-completa{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    bottom: 0%;
+    right: 0%;
+    background-color: rgba(0,0,0,.5);
+    z-index: 4;
+}
 
+@keyframes desplazamiento{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+.btn-cerrar:hover{
+    color: var(--azul);
+    cursor: pointer;
+}
+.contenedor-navegacion{
+    background-color: var(--oscuro);
+    position: relative;
+    z-index: 5;
+}
+/* Encabezado */
+.contenido-navegacion{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contenido-navegacion img, h1, h2{
+    display: inline;
+}
+
+.logo h2, .navegacion a{
+    color: var(--blanco);
+    line-height: 6rem;
+    font-weight: bold;
+}
+/* .logo h2{
+    font-size: 3rem;
+} */
+.navegacion a{
+    display: block;
+    text-decoration: none;
+    font-size: 2.2rem;
+    padding: 1.3rem;
+    padding-left: 4rem;
+    transition: color .3s ease-in-out;
+    text-align: center;
+}
+@media(min-width:768px){
+    .navegacion a{
+        text-align: left;
+    }
+}
+.navegacion a:hover{
+    color: var(--celeste);
+}
+.navegacion a:first-of-type{
+    margin-top: 3rem;
+}
+.navegacion{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 40rem;
+    padding: 3rem 4rem  ;
+    background-color: var(--oscuro);
+    animation: desplazamiento .5s ease-in-out;
+}
+.hamburguesa span{
+    background-color: var(--blanco);
+    display: block;
+    width: 5rem;
+    height: .5rem;
+    margin-bottom: .5rem;
+}
