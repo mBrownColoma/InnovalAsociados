@@ -34,6 +34,10 @@ h1, h2{
 h3, p, a{
     font-family: var(--parrafos);
 }
+
+img{
+    max-width: 100%;
+}
 .gris{
     color: var(--gris);
 }
@@ -101,6 +105,12 @@ h3, p, a{
     color: var(--celeste);
     background-color: var(--blanco);
 }
+.btn-celeste{
+    background-color: var(--celeste);
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 2rem;
+}
 .contenedor-navegacion{
     background-color: var(--oscuro);
     position: relative;
@@ -112,10 +122,12 @@ h3, p, a{
     align-items: center;
     justify-content: space-between;
 }
-.contenido-navegacion img, h1, h2{
-    display: inline;
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
-
 .logo h2, .navegacion a{
     color: var(--blanco);
     line-height: 6rem;
@@ -202,4 +214,65 @@ video{
     width: 100%;
     height: 100%;
 
+}
+/* sobre nosotros */
+.contenedor-nosotros{
+    padding-top: 3rem;
+
+}
+@media(min-width:768px){
+    .contenedor-nosotros{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.texto-nosotros, .imagenes-nosotros{
+    flex: 0 0 calc(50% - 1rem);
+}
+.texto-nosotros .bienvenida{
+    font-size: 2rem;
+    color: var(--celeste);
+    text-align: center;
+}
+@media(min-width:768px){
+    .texto-nosotros .bienvenida{
+        font-size: 4rem;
+        text-align: left;
+    }
+
+}
+.texto-nosotros h1{
+    font-size: 3rem;
+    text-align: center;
+}
+@media(min-width:768px){
+    .texto-nosotros h1{
+        font-size: 4rem;
+        text-align: left;
+    }
+}
+.texto-nosotros p{
+    font-size: 1.5rem;
+    text-align: center;
+}
+@media(min-width:768px){
+    .texto-nosotros p{
+        font-size: 2.5rem;
+        text-align: left;
+    }
+    
+
+}
+.imagenes-nosotros{
+    display: flex;
+    justify-content: space-between;
+}
+.imagenes-nosotros img{
+    border-radius: 5px;
+}
+.imagen1, .imagenes2{
+    flex: 0 0 calc(50% - 1rem);
+}
+.imagenes2 img{
+    margin-bottom: 1rem;
 }
