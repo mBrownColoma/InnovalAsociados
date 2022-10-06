@@ -1,12 +1,12 @@
 :root{
     --azul: #0013a1;
     --blanco: #fff;
-    --celeste: #006aff;
+    --celeste: #0059ff;
+    --celeste2: #1e7bd2;
     --gris: rgb(182, 182, 182);
     --oscuro: #000;
     --titulos: 'Inter Tight', cursive;
     --parrafos: 'Lato', sans-serif;
-    
 }
 
 html{
@@ -111,6 +111,13 @@ img{
     display: inline-block;
     margin-top: 2rem;
 }
+.btn-celeste2{
+    background-color: var(--celeste2);
+    border: none;
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-family: var(--parrafos);
+}
 .contenedor-navegacion{
     background-color: var(--oscuro);
     position: relative;
@@ -180,6 +187,7 @@ img{
 /* video */
 .contenido-header{
     position: relative;
+    
 }
 .contenido-header::before{
     content:'';
@@ -208,12 +216,12 @@ img{
     .texto-encabezado h2{
         font-size: 8rem;
         }
-
 }
 video{
     width: 100%;
     height: 100%;
-
+    /*padding-right:  8rem;
+    padding-left: 8rem;*/
 }
 /* sobre nosotros */
 .contenedor-nosotros{
@@ -260,8 +268,6 @@ video{
         font-size: 2.5rem;
         text-align: left;
     }
-    
-
 }
 .imagenes-nosotros{
     display: flex;
@@ -276,21 +282,75 @@ video{
 .imagenes2 img{
     margin-bottom: 1rem;
 }
-.whatsapp{
-    position: fixed; 
-    right: 2rem; 
-    bottom: 2rem;
-    float: right;
-    margin-right: 1.5rem;
-    margin-bottom: 1.5rem;
-    width : 50px;
-    height : 50px;
+.listado{
+    padding-top: 4rem;
+}
+/* Servicios */
+.texto-servicios{
+    text-align: center;
+    font-size: 5rem;
+}
+
+.botones-servicios{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.botones-servicios button{
+    flex: 0 0 (50% - 1rem);
+    padding: 1rem 1rem;
 }
 @media(min-width:768px){
-    .whatsapp{
-        margin-right: 3rem;
-        margin-bottom: 3rem;
-        width : 80px;
-        height : 80px;
+    .botones-servicios{
+        display: inline-block;
     }
+    .botones-servicios button{
+        flex: unset;
+        padding: .8rem .8rem;
+    }
+}
+@media(min-width:768px){
+    .servicios{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+.servicio{
+    flex: 0 0 calc(50% - 1rem);
+    border: 1.5px solid #e1e1e1;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+.servicio img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.servicio h2{
+    text-align: center;
+}
+.servicio ul{
+    font-size: 1.8rem;
+}
+.precio{
+    display: flex;
+    justify-content: space-between;
+}
+.precio p{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.whatsapp svg{
+    width: 7rem;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    filter: drop-shadow(.8rem .8rem .8rem #0008);
+    transition: all .3s ease-in-out;
+}
+.whatsapp svg:hover{
+    width: 10rem;
 }

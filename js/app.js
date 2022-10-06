@@ -5,6 +5,7 @@ const imagenes = document.querySelectorAll('img');
 
 document.addEventListener('DOMContentLoaded',()=>{
     evento();
+    servicios();
 });
 
 const evento = () => {
@@ -32,9 +33,19 @@ const botonCerrar = () => {
     cerrarMenu(btnCerrar, overlay);
 }
 
+const observer = new IntersectionObserver((entries, observer)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            const imagen = entry.target;
+            observer.unobserve(imagen);
+        }
+    })
+});
+
 imagenes.forEach(imagen=>{
     imagen.src = imagen.dataset.src;
-})
+    observer.observe(imagen);
+});
 
 const cerrarMenu = (boton, overlay) => {
     boton.addEventListener('click', () =>{
@@ -48,4 +59,13 @@ const cerrarMenu = (boton, overlay) => {
         navegacion.classList.add('ocultar');
         boton.remove();
     }
+}
+
+const servicios = () => {
+    let serviciosArrays = [];
+    const servicios = document.querySelectorAll('.servicio');
+    
+    servicios.forEach(servicio=>serviciosArrays = [...serviciosArrays,servicio])
+    
+    // const 
 }
