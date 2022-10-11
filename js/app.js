@@ -1,7 +1,11 @@
 const menu = document.querySelector('.hamburguesa');
 const navegacion = document.querySelector('.navegacion');
 const imagenes = document.querySelectorAll('img');
-
+const btnTodos = document.querySelector('.todos');
+const btnPlanes = document.querySelector('.planes');
+const btnServContables = document.querySelector('.servContables');
+const btnServRrhhs = document.querySelector('.servRrhhs');
+const contenedorServicios = document.querySelector('.servicios');
 
 document.addEventListener('DOMContentLoaded',()=>{
     evento();
@@ -37,13 +41,13 @@ const observer = new IntersectionObserver((entries, observer)=>{
     entries.forEach(entry=>{
         if(entry.isIntersecting){
             const imagen = entry.target;
+            imagen.src = imagen.dataset.src;
             observer.unobserve(imagen);
         }
     })
 });
 
 imagenes.forEach(imagen=>{
-    imagen.src = imagen.dataset.src;
     observer.observe(imagen);
 });
 
@@ -65,7 +69,35 @@ const servicios = () => {
     let serviciosArrays = [];
     const servicios = document.querySelectorAll('.servicio');
     
-    servicios.forEach(servicio=>serviciosArrays = [...serviciosArrays,servicio])
-    
-    // const 
+    servicios.forEach(servicio=>serviciosArrays = [...serviciosArrays,servicio]);
+
+    const planes = serviciosArrays.filter(plan=> plan.getAttribute('data-servicio') === 'planes');
+    const contables = serviciosArrays.filter(contable=> contable.getAttribute('data-servicio') === 'contables');
+    const rrhhs = serviciosArrays.filter(rrhh=> rrhh.getAttribute('data-servicio') === 'rrhhs');
+
+    mostrarServicios(planes, contables, rrhhs, serviciosArrays);
+}
+
+const mostrarServicios = (planes, contables, rrhhs, todos) => {
+    btnPlanes.addEventListener('click', () => {
+        limpiarHtml(contenedorServicios);
+        planes.forEach(plan=> contenedorServicios.appendChild(plan))
+    });
+    btnServContables.addEventListener('click', () => {
+        limpiarHtml(contenedorServicios);
+        contables.forEach(contable=> contenedorServicios.appendChild(contable))
+    });
+    btnServRrhhs.addEventListener('click', () => {
+        limpiarHtml(contenedorServicios);
+        rrhhs.forEach(rrhh=> contenedorServicios.appendChild(rrhh))
+    });
+    btnTodos.addEventListener('click', () =>{
+        limpiarHtml(contenedorServicios);
+        todos.forEach(todo => contenedorServicios.appendChild(todo))
+    })
+}
+const limpiarHtml = (contenedor) => {
+    while(contenedor.firstChild){
+        contenedor.removeChild(contenedor.firstChild);
+    }
 }
